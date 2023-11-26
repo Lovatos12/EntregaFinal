@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="header">
+    <div class="overlay"></div>
+
+    <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">  
+        <div class="container">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="carousel-title">Bienvenido/a <br> {{ user.last_name }}, {{ user.first_name }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</header>
+
+
+<body>
+    <h1>Información del usuario</h1>
+
+    <p>Nombre: {{ user.last_name }}</p>
+    <p>Apellido: {{ user.first_name }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    <a href="{% url 'edit_profile' %}">Actualizar información</a>
+</body>
+</html>
+
+
+{% endblock contenido %}

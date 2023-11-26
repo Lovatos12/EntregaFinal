@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block titulo %}
+<title>Entrega Final | Cesar Peraza</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    {% if user.is_authenticated %}
+    <header id="home" class="header">
+        <div class="overlay"></div>
+
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">  
+            <div class="container">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="carousel-title">Bienvenido/a <br> {{ user.last_name }}, {{ user.first_name }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </header>
+    {% else %}
+    <header id="home" class="header">
+        <div class="overlay"></div>
+
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">  
+            <div class="container">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="carousel-title">Entrega Final<br> Creative Design</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="carousel-title">Entrega Final<br> Responsive Design</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="carousel-title">Entrega Final<br> Simple Design</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </header>
+    {% endif %}
+
+
+    {% endblock contenido %}

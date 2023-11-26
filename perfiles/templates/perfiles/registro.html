@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>Creacion de Usuario | Entrega Final | Cesar Peraza</title>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+
+<header class="header">
+  <div class="overlay"></div>
+  <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel"> 
+    <h1 style="color:#FF0000;">
+      Creacion de usuario:    
+  </h1>
+  </header>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Registrarse" />
+</form>
+{% endblock contenido %}

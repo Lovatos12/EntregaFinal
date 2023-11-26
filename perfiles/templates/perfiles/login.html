@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<header class="header">
+  <div class="overlay"></div>
+  <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel"> 
+    <h1 style="color:#FF0000;">
+      Login:    
+  </h1>
+  </header>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Iniciar Sesión" />
+</form>
+{% endblock contenido %}

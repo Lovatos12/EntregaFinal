@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block titulo %}
+<title>Foros | Pre entrega 3 | Cesar Peraza</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<header id="foro" class="header">
+  <div class="overlay"></div>
+  <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel"> 
+    <h1 style="color:#FF0000;">
+      Foros Publicados:    
+  </h1>
+  </header>
+
+<br><br>
+<h2 class="text-success">
+  <a class="btn btn-success" href="{% url 'para_crear_foro' %}">Crear Foro</a>
+  <a class="btn btn-warning" href="{% url 'lista_foro' %}">Ver todos</a>
+</h2>
+<br><br>
+
+
+<h2 class="text-success">
+<form action="{% url 'para_buscar_foro' %}" method="post">
+  {% csrf_token %}
+  
+  <input type="text" name="busqueda">
+  <input type="submit" value="Buscar">
+</form>
+</h2>
+
+<br><br>
+
+        <h3 class="text-warning">
+        <ul>
+          {% if foros %}
+            {% for foro in foros %}
+              <li>
+                <a href="#">
+                <h3>{{ foro.tema }}</h3>
+                <h1>{{ foro.nombre }}</h1>
+                <p>{{ foro.contenido|truncatechars:10 }}</p>
+                </a>
+              </li>
+            {% endfor %}
+          {% else %}
+            <p>No hay publicaciones</p>
+          {% endif %}
+        </ul>
+        </h3>
+
+    </div>
+
+    <br><br>
+  
+      
+
+{% endblock contenido %}

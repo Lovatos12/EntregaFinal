@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="header">
+    <div class="overlay"></div>
+    <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel"> 
+      <h1 style="color:#FF0000;">
+        Actualizar información del usuario
+    </h1>
+</header>
+
+
+<body>
+  <form action="{% url 'edit_profile' %}" method="post">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="first_name" value="{{ user.first_name }}">
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="last_name" value="{{ user.last_name }}">
+    <label for="email">Email:</label>
+    <input type="email" name="email" value="{{ user.email }}">
+
+    <input type="submit" value="Guardar">
+  </form>
+
+  </body>
+
+
+{% endblock contenido %}
